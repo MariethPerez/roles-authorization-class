@@ -27,7 +27,7 @@ class NewsArticlePolicy < ApplicationPolicy
       if user.admin?
         scope.all # NewsArticle.all
       else
-        scope.where("published_at is not null") # NewsArticle.where
+        scope.where.not(published_at: nil) # NewsArticle.where
       end
     end
   end
