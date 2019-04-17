@@ -1,9 +1,11 @@
 class NewsArticlesController < ApplicationController
   def index
-    @news_articles = authorize(NewsArticle.all)
+    authorize(NewsArticle) # NewsArticlePolicy.index?
+    @news_articles = policy_scope(NewsArticle.all) # NewsArticlePolicy::Scope.resolve
   end
 
   def show
-    @news_article = NewsArticle.find(params[:id])
+    authorize(NewsArticle)
+    @news_article = policy_scope(NewsArticle.find(params[:id]))
   end
 end
