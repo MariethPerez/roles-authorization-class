@@ -27,7 +27,7 @@ class NewsArticlePolicy < ApplicationPolicy
       if user.admin?
         scope.all # NewsArticle.all
       else
-        scope.where(author: "First Author") # NewsArticle.where
+        scope.where("published_at is not null") # NewsArticle.where
       end
     end
   end
