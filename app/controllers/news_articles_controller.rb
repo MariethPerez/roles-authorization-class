@@ -1,6 +1,6 @@
 class NewsArticlesController < ApplicationController
   def index
-    @news_articles = NewsArticle.all
+    @news_articles = authorize(NewsArticle.all)
   end
 
   def show
