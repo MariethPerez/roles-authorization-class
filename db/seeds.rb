@@ -31,3 +31,28 @@ unless User.any?
     password_confirmation: "password"
   )
 end
+
+unless NewsArticle.any?
+  NewsArticle.create(
+    title: "First Article",
+    author: "First Author",
+    content: "Hi",
+    category: "sports",
+    published_at: Date.yesterday
+  )
+
+  NewsArticle.create(
+    title: "Second Article",
+    author: "Second Author",
+    content: "San Francisco",
+    category: "world-news",
+    published_at: 3.days.ago
+  )
+
+  NewsArticle.create(
+    title: "First Draft",
+    author: "First Author",
+    content: "Hello",
+    category: "politics",
+  )
+end
