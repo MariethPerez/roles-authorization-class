@@ -2,8 +2,9 @@ class ApplicationController < ActionController::Base
   include Pundit
 
   def current_user
-    User.find_by(email: "jon@snow.com")
-    # User.find_by(email: "dany@t.com")
-    # User.find_by(email: "tyrion@lannister.com")
+    # DON'T
+    # DO
+    # THIS
+    User.find_by(role: params[:role])
   end
 end
